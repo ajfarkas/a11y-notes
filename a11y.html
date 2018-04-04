@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>A11y: Accessibility</title>
+	<style type="text/css">
+		/*defaults*/
+		p, code {
+			max-width: 60rem;
+		}
+		/*page styles*/
+		.visuallyHidden {
+			border: 0;
+			clip: rect(0 0 0 0);
+			position: absolute;
+			height: 1px;
+			width: 1px;
+			margin: -1px;
+			padding: 0;
+			overflow: hidden;
+		}
+
+		/*helpers*/
+		.icon {
+			display: inline-block;
+			width: 0.8rem;
+			height: 0.8rem;
+			border-radius: 50%;
+			border: 0.1rem solid seagreen;
+		}
+		.button {
+			display: inline-block;
+			border: 1px solid black;
+			border-radius: 3px;
+			padding: 2px 4px;
+		}
+	</style>
+</head>
+<body>
+	<article role="main">
+		<section>
+			<h1>Buttons</h1>
+			<a href="https://egghead.io/lessons/css-accessible-icon-buttons">Accessible Icon Buttons</a>
+			<div class="examples">
+				<button aria-label="help 1">Help 1</button>
+				<button>
+					<span class="visuallyHidden">Help 2</span>
+					<i class="icon" aria-hidden="true"></i>
+				</button>
+				<div class="button" role="button" tabindex="0">
+					<svg width="1rem" height="1rem" viewBox="0 0 10 10" aria-labelledby="svg-btn">
+						<title id="svg-btn">Help 3</title>
+						<circle cx="5" cy="5" r="4" fill="none" stroke-width="1" stroke="seagreen"></circle>
+					</svg>
+				</div>
+			</div>
+			<p>&lt;div&gt; element click events don&apos;t come with keydown triggers like buttons do, so they need to be explicitly added:</p>
+			<code>&lt;div onClick="doStuff()" onKeydown="doStuff()"&gt;&lt;/div&gt;</code>
+			<br/>
+			<code>&lt;button onClick="doStuff()"&gt;&lt;/button&gt;</code>
+		</section>
+	</article>
+</body>
+</html>
